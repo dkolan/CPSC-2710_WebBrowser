@@ -38,7 +38,10 @@ namespace WebBrowser.UI
         }
         private void toolStripTextBoxAddress_KeyUp(object sender, KeyEventArgs e)
         {
-            Navigate(toolStripTextBoxAddress.Text);
+            if (e.KeyCode == Keys.Enter)
+            {
+                Navigate(toolStripTextBoxAddress.Text);
+            }
         }
 
         private void Navigate(String address)
