@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WebBrowser.UI;
 
 namespace WebBrowser.UI
 {
@@ -15,11 +16,6 @@ namespace WebBrowser.UI
         public Browser()
         {
             InitializeComponent();
-        }
-
-        private void Browser_Load_1(object sender, EventArgs e)
-        {
-            webBrowser.ScriptErrorsSuppressed = true;
         }
 
         private void exitWebBrowserToolStripMenuItem_Click(object sender, EventArgs e)
@@ -32,34 +28,30 @@ namespace WebBrowser.UI
             MessageBox.Show("Dan Kolan\n" + "dzk0077");
         }
 
-        private void toolStripButtonGo_Click(object sender, EventArgs e)
+        private void newTabToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Navigate(toolStripTextBoxAddress.Text);
-        }
-        private void toolStripTextBoxAddress_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                Navigate(toolStripTextBoxAddress.Text);
-            }
+            BrowserControl bc = new BrowserControl();
+            bc.Dock = DockStyle.Fill;
+            TabPage tp = new TabPage("New Tab");
+            tp.Controls.Add(bc);
+            this.tabControl1.TabPages.Add(tp);
+            this.tabControl1.SelectTab(tp);
         }
 
-        private void Navigate(String address)
+        private void Browser_Load(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(address)) return;
-            if (address.Equals("about:blank")) return;
-            if (!address.StartsWith("http://") &&
-                !address.StartsWith("https://"))
+            newTabToolStripMenuItem_Click(sender, e);
+        }
+
+        private void closeCurrentTabToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (tabControl1.TabCount != 0)
             {
-                address = "http://" + address;
-            }
-            try
-            {
-                webBrowser.Navigate(address);
-            }
-            catch (System.UriFormatException)
-            {
-                return;
+                this.tabControl1.TabPages.Remove(this.tabControl1.SelectedTab);
+                if (tabControl1.TabCount > 1)
+                {
+                    this.tabControl1.SelectTab(tabControl1.TabCount - 1);
+                }
             }
         }
     }
