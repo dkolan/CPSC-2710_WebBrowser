@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace WebBrowser.Logic
 {
-    class BookmarkItem
+    public class BookmarkItem
     {
-        public string utl { get; set; }
+        public string url { get; set; }
         public string title { get; set; }
 
-        public BookmarkItem(string utl, string title)
+        public BookmarkItem(string url, string title)
         {
-            this.utl = utl;
+            this.url = url;
             this.title = title;
         }
     }
