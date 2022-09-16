@@ -22,7 +22,7 @@ namespace WebBrowser.Logic
         public static List<HistoryItem> getAllHistoryItems()
         {
             var adapter = new HistoryTableAdapter();
-            var historyItemsList = new List<HistoryItem>;
+            var historyItemsList = new List<HistoryItem>();
             var rows = adapter.GetData();
 
             foreach(var row in rows)
