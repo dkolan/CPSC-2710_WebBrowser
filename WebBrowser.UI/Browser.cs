@@ -54,5 +54,17 @@ namespace WebBrowser.UI
                 }
             }
         }
+
+        private void manageHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HistoryManagerForm hm = new HistoryManagerForm();
+            hm.ShowDialog();
+        }
+
+        private void manageBookmarksToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BookmarkManagerForm bm = new BookmarkManagerForm();
+            bm.ShowDialog();
+        }
     }
 }
