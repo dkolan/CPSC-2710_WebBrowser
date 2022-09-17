@@ -132,6 +132,7 @@
             this.toolStripButtonBookmark.Size = new System.Drawing.Size(32, 29);
             this.toolStripButtonBookmark.Text = "toolStripButtonBookmark";
             this.toolStripButtonBookmark.ToolTipText = "toolStripButtonBookmark";
+            this.toolStripButtonBookmark.Click += new System.EventHandler(this.toolStripButtonBookmark_Click);
             // 
             // webBrowser
             // 
