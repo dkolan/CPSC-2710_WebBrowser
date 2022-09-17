@@ -16,5 +16,10 @@ namespace WebBrowser.Logic
             this.url = url;
             this.title = title;
         }
+
+        public override string ToString()
+        {
+            return return title + " (" + url + ")";
+        }
     }
 }

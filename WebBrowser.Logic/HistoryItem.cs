@@ -18,5 +18,10 @@ namespace WebBrowser.Logic
             this.title = title;
             this.date = date;
         }
+
+        public override string ToString()
+        {
+            return "[" + date + "] " + title + " (" + url + ")";
+        }
     }
 }
