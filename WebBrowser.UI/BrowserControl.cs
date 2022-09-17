@@ -71,17 +71,24 @@ namespace WebBrowser.UI
         private void webBrowser_Navigated(object sender, WebBrowserNavigatedEventArgs e)
         {
             toolStripTextBoxAddress.Text = webBrowser.Url.ToString();
-            var historyItem = new HistoryItem(
-                webBrowser.Url.ToString(),
-                webBrowser.DocumentTitle.ToString(),
-                DateTime.Now
-                );
+
+            HistoryManager.addHistoryItem(
+                new HistoryItem(
+                    webBrowser.Url.ToString(),
+                    webBrowser.DocumentTitle.ToString(),
+                    DateTime.Now
+                )
+            );
         }
 
         private void toolStripButtonBookmark_Click(object sender, EventArgs e)
         {
-            var bookmarkItem = new BookmarkItem(webBrowser.Url.ToString(), webBrowser.DocumentTitle.ToString());
-            BookmarkManager.addBookmarkItem(bookmarkItem);
+            BookmarkManager.addBookmarkItem(
+                new BookmarkItem(
+                    webBrowser.Url.ToString(),
+                    webBrowser.DocumentTitle.ToString()
+                )
+            );
         }
     }
 }
