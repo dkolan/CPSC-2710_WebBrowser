@@ -71,6 +71,7 @@ namespace WebBrowser.UI
         private void webBrowser_Navigated(object sender, WebBrowserNavigatedEventArgs e)
         {
             toolStripTextBoxAddress.Text = webBrowser.Url.ToString();
+            this.Parent.Text = webBrowser.DocumentTitle;
 
             HistoryManager.addHistoryItem(
                 new HistoryItem(
