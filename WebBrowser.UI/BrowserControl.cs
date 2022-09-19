@@ -91,5 +91,13 @@ namespace WebBrowser.UI
                 )
             );
         }
+
+        private void webBrowser_ProgressChanged(object sender, WebBrowserProgressChangedEventArgs e)
+        {
+            double currentPercent = e.MaximumProgress == 0 ? 0 : (e.CurrentProgress / e.MaximumProgress) * 100;
+            toolStripProgressBar.Value = Convert.ToInt32(currentPercent);
+
+            toolStripStatusLabelLoadStatus.Text = e.CurrentProgress < e.MaximumProgress ? "Loading..." : "Done.";
+        }
     }
 }
