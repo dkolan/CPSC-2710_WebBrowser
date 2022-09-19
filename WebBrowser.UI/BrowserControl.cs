@@ -80,6 +80,8 @@ namespace WebBrowser.UI
                     DateTime.Now
                 )
             );
+
+            webBrowser.StatusTextChanged += new EventHandler(webBrowser_StatusTextChanged);
         }
 
         private void toolStripButtonBookmark_Click(object sender, EventArgs e)
@@ -98,6 +100,11 @@ namespace WebBrowser.UI
             toolStripProgressBar.Value = Convert.ToInt32(currentPercent);
 
             toolStripStatusLabelLoadStatus.Text = e.CurrentProgress < e.MaximumProgress ? "Loading..." : "Done.";
+        }
+
+        private void webBrowser_StatusTextChanged(object sender, EventArgs e)
+        {
+            toolStripStatusLabelURL.Text = webBrowser.StatusText == "Done" ? "" : webBrowser.StatusText;
         }
     }
 }

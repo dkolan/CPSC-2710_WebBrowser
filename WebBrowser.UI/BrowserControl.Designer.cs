@@ -40,6 +40,7 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripProgressBar = new System.Windows.Forms.ToolStripProgressBar();
             this.toolStripStatusLabelLoadStatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelURL = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -154,7 +155,8 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripProgressBar,
-            this.toolStripStatusLabelLoadStatus});
+            this.toolStripStatusLabelLoadStatus,
+            this.toolStripStatusLabelURL});
             this.statusStrip1.Location = new System.Drawing.Point(0, 512);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1151, 22);
@@ -172,6 +174,11 @@
             // 
             this.toolStripStatusLabelLoadStatus.Name = "toolStripStatusLabelLoadStatus";
             this.toolStripStatusLabelLoadStatus.Size = new System.Drawing.Size(0, 17);
+            // 
+            // toolStripStatusLabelURL
+            // 
+            this.toolStripStatusLabelURL.Name = "toolStripStatusLabelURL";
+            this.toolStripStatusLabelURL.Size = new System.Drawing.Size(0, 17);
             // 
             // BrowserControl
             // 
@@ -206,5 +213,6 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelLoadStatus;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelURL;
     }
 }
