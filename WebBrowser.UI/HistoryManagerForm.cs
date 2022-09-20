@@ -27,5 +27,37 @@ namespace WebBrowser.UI
                 listBoxHistoryManager.Items.Add(item.ToString());
             }
         }
+
+        private void buttonHistorySearch_Click(object sender, EventArgs e)
+        {
+            listBoxHistoryManager.Items.Clear();
+            List<HistoryItem> searchResults = HistoryManager.searchHistoryItems(textBoxHistorySearch.Text);
+
+            foreach (HistoryItem item in searchResults)
+            {
+                listBoxHistoryManager.Items.Add(item.ToString());
+            }
+        }
+
+        private void buttonDeleteHistoryItem_Click(object sender, EventArgs e)
+        {
+            HistoryManager.deleteHistoryItem(listBoxHistoryManager.SelectedItem.ToString());
+
+            var historyItemList = HistoryManager.getAllHistoryItems();
+
+            listBoxHistoryManager.Items.Clear();
+
+            foreach (HistoryItem item in historyItemList)
+            {
+                listBoxHistoryManager.Items.Add(item.ToString());
+            }
+        }
+
+        private void buttonClearHistory_Click(object sender, EventArgs e)
+        {
+            HistoryManager.clearHistory();
+
+            listBoxHistoryManager.Items.Clear();
+        }
     }
 }
