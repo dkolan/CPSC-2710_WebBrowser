@@ -73,15 +73,18 @@ namespace WebBrowser.UI
             toolStripTextBoxAddress.Text = webBrowser.Url.ToString();
             this.Parent.Text = webBrowser.DocumentTitle;
 
-            HistoryManager.addHistoryItem(
-                new HistoryItem(
-                    webBrowser.Url.ToString(),
-                    webBrowser.DocumentTitle.ToString(),
-                    DateTime.Now
-                )
-            );
+            if (webBrowser.Url.AbsoluteUri == e.Url.AbsoluteUri)
+            {
+                HistoryManager.addHistoryItem(
+                    new HistoryItem(
+                        webBrowser.Url.ToString(),
+                        webBrowser.DocumentTitle.ToString(),
+                        DateTime.Now
+                    )
+                );
 
-            webBrowser.StatusTextChanged += new EventHandler(webBrowser_StatusTextChanged);
+                webBrowser.StatusTextChanged += new EventHandler(webBrowser_StatusTextChanged);
+            }
         }
 
         private void toolStripButtonBookmark_Click(object sender, EventArgs e)
