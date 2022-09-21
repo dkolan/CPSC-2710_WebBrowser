@@ -27,5 +27,30 @@ namespace WebBrowser.UI
                 listBoxBookmarkManager.Items.Add(item.ToString());
             }
         }
+
+        private void buttonBookmarkSearch_Click(object sender, EventArgs e)
+        {
+            listBoxBookmarkManager.Items.Clear();
+            List<BookmarkItem> searchResults = BookmarkManager.searchBookmarkItems(textBoxBookmarkSearch.Text);
+
+            foreach (BookmarkItem item in searchResults)
+            {
+                listBoxBookmarkManager.Items.Add(item.ToString());
+            }
+        }
+
+        private void buttonBookmarkDelete_Click(object sender, EventArgs e)
+        {
+            BookmarkManager.deleteHistoryItem(listBoxBookmarkManager.SelectedItem.ToString());
+
+            var bookmarkItemList = BookmarkManager.getAllBookmarkItems();
+
+            listBoxBookmarkManager.Items.Clear();
+
+            foreach (BookmarkItem item in bookmarkItemList)
+            {
+                listBoxBookmarkManager.Items.Add(item.ToString());
+            }
+        }
     }
 }

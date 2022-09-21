@@ -99,11 +99,10 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ListBox listBoxHistoryManager;
         private System.Windows.Forms.TextBox textBoxHistorySearch;
         private System.Windows.Forms.Button buttonHistorySearch;
         private System.Windows.Forms.Button buttonDeleteHistoryItem;
         private System.Windows.Forms.Button buttonClearHistory;
+        public System.Windows.Forms.ListBox listBoxHistoryManager;
     }
 }

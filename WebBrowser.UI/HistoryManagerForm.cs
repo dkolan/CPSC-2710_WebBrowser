@@ -53,7 +53,7 @@ namespace WebBrowser.UI
             }
         }
 
-        private void buttonClearHistory_Click(object sender, EventArgs e)
+        public void buttonClearHistory_Click(object sender, EventArgs e)
         {
             HistoryManager.clearHistory();
 

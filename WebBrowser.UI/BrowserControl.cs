@@ -100,7 +100,7 @@ namespace WebBrowser.UI
         private void webBrowser_ProgressChanged(object sender, WebBrowserProgressChangedEventArgs e)
         {           
             toolStripProgressBar.Maximum = (int)e.MaximumProgress;
-            //double currentPercent = e.MaximumProgress == 0 ? 0 : (e.CurrentProgress / e.MaximumProgress) * 100;
+
             if ((int)e.CurrentProgress > -1)
             {
                 if (e.CurrentProgress > e.MaximumProgress)
@@ -111,9 +111,6 @@ namespace WebBrowser.UI
                     toolStripProgressBar.Value = (int)e.CurrentProgress;
                 }
             }
-            //toolStripProgressBar.Value = Convert.ToInt32(currentPercent);
-
-            //ArgumentOutOfRangeException
 
             toolStripStatusLabelLoadStatus.Text = e.CurrentProgress < e.MaximumProgress ? "Loading..." : "Done.";
         }
