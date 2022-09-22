@@ -46,7 +46,7 @@ namespace WebBrowser.Logic
             var matchList = new List<HistoryItem>();
             foreach (var row in rows)
             {
-                if (row.Title.Contains(searchTerm) || row.URL.Contains(searchTerm))
+                if (row.Title.ToLower().Contains(searchTerm.ToLower()) || row.URL.ToLower().Contains(searchTerm.ToLower()))
                 {
                     var item = new HistoryItem(
                     row.Title,
