@@ -73,13 +73,18 @@ namespace WebBrowser.UI
             toolStripTextBoxAddress.Text = webBrowser.Url.ToString();
             this.Parent.Text = webBrowser.DocumentTitle;
 
-            HistoryManager.addHistoryItem(
-                new HistoryItem(
-                    webBrowser.Url.ToString(),
-                    webBrowser.DocumentTitle.ToString(),
-                    DateTime.Now
-                )
-            );
+            if (webBrowser.Url.AbsoluteUri == e.Url.AbsoluteUri)
+            {
+                HistoryManager.addHistoryItem(
+                    new HistoryItem(
+                        webBrowser.Url.ToString(),
+                        webBrowser.DocumentTitle.ToString(),
+                        DateTime.Now
+                    )
+                );
+
+                webBrowser.StatusTextChanged += new EventHandler(webBrowser_StatusTextChanged);
+            }
         }
 
         private void toolStripButtonBookmark_Click(object sender, EventArgs e)
@@ -90,6 +95,29 @@ namespace WebBrowser.UI
                     webBrowser.DocumentTitle.ToString()
                 )
             );
+        }
+
+        private void webBrowser_ProgressChanged(object sender, WebBrowserProgressChangedEventArgs e)
+        {           
+            toolStripProgressBar.Maximum = (int)e.MaximumProgress;
+
+            if ((int)e.CurrentProgress > -1)
+            {
+                if (e.CurrentProgress > e.MaximumProgress)
+                {
+                    toolStripProgressBar.Value = (int)e.MaximumProgress;
+                } else
+                {
+                    toolStripProgressBar.Value = (int)e.CurrentProgress;
+                }
+            }
+
+            toolStripStatusLabelLoadStatus.Text = e.CurrentProgress < e.MaximumProgress ? "Loading..." : "Done.";
+        }
+
+        private void webBrowser_StatusTextChanged(object sender, EventArgs e)
+        {
+            toolStripStatusLabelURL.Text = webBrowser.StatusText == "Done" ? "" : webBrowser.StatusText;
         }
     }
 }

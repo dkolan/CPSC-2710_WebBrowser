@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WebBrowser.UI;
+using WebBrowser.Logic;
 
 namespace WebBrowser.UI
 {
     public partial class Browser : Form
     {
+        public HistoryManagerForm hmf;
         public Browser()
         {
             InitializeComponent();
@@ -65,6 +66,12 @@ namespace WebBrowser.UI
         {
             BookmarkManagerForm bm = new BookmarkManagerForm();
             bm.ShowDialog();
+        }
+
+        private void clearHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var hmf = new HistoryManagerForm();
+            hmf.buttonClearHistory_Click(sender, e);
         }
     }
 }
