@@ -18,7 +18,7 @@ namespace WebBrowser.Logic
             );
         }
 
-        public static void deleteHistoryItem(string itemToDelete)
+        public static void deleteBookmarkItem(string itemToDelete)
         {
             var adapter = new BookmarksTableAdapter();
             var rows = adapter.GetData();
