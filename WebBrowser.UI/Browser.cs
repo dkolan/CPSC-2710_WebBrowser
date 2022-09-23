@@ -95,5 +95,14 @@ namespace WebBrowser.UI
                 }
             }
         }
+
+        private void printPageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var focusedBrowser = this.tabControl1.TabPages[tabControl1.SelectedIndex].Controls.Find("webBrowser", true)[0];
+
+            System.Windows.Forms.WebBrowser fb = (System.Windows.Forms.WebBrowser)focusedBrowser;
+
+            fb.ShowPrintDialog();
+        }
     }
 }
