@@ -41,7 +41,7 @@ namespace WebBrowser.UI
 
         private void buttonBookmarkDelete_Click(object sender, EventArgs e)
         {
-            BookmarkManager.deleteHistoryItem(listBoxBookmarkManager.SelectedItem.ToString());
+            BookmarkManager.deleteBookmarkItem(listBoxBookmarkManager.SelectedItem.ToString());
 
             var bookmarkItemList = BookmarkManager.getAllBookmarkItems();
 
