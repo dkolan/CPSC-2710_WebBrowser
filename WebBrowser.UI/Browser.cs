@@ -28,7 +28,9 @@ namespace WebBrowser.UI
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Dan Kolan\n" + "dzk0077");
+            AboutForm af = new AboutForm();
+            af.Show();
+            //MessageBox.Show("Dan Kolan\n" + "dzk0077");
         }
 
         private void newTabToolStripMenuItem_Click(object sender, EventArgs e)
